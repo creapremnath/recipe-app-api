@@ -4,14 +4,20 @@ LABEL manitainer="creativepremnath@gmail.com"
 ENV PYTHONBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt 
+COPY ./requirements.txt /tmp/requirements.dev.txt
 COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
 
+ARG DEV=false
+
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
     /py/bin/pip install -r tmp/requirements.txt && \
-    rm -rf /tmp && \
+    if [$DEV ="true"];\
+        then /py/bin/pip install -r tmp/requirements.dev.txt;\
+    fi &&\
+    rm -rf /tmp &&\
     adduser \
     --disable-password \
     --no-create-home \
