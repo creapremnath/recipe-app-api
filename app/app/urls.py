@@ -19,3 +19,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+# Add the following URL patterns to your app's urls.py file
