@@ -1,6 +1,7 @@
 """
 Tests for models.
 """
+from decimal import Decimal
 from unittest.mock import patch   # noqa
 from decimal import Decimal   # noqa
 
@@ -56,3 +57,17 @@ class ModelTests(TestCase):
 
         self.assertTrue(user.is_superuser)
         self.assertTrue(user.is_staff)
+
+    def test_create_add_recipe(self):
+        """Test for creating Recipe."""
+        user = get_user_model().objects.create_user(
+            "prem@gmail.com",
+            "prem@123",
+        )
+        recipe = models.Recipe.objects.create(
+            title="Test Recipe",
+            user=user,
+            time_minutes=10,
+            price=Decimal("5.99"),
+        )
+        self.assertEqual(str(recipe), recipe.title)
