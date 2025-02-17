@@ -13,12 +13,14 @@ docker-compose up
 
 docker-compose down
 
-
-
 #to run the tests
+
 # --rm removes the container after execution
-docker-compose run  --rm app sh -c "python manage.py test" 
+
+docker-compose run --rm app sh -c "python manage.py test"
 
 #Create new app
 
 docker-compose run --rm app sh -c "python manage.py startapp newapp"
+
+# Tutorial Pause at 99 video write test for creating tags
