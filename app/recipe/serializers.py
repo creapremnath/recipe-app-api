@@ -31,8 +31,11 @@ class RecipeSerializer(serializers.ModelSerializer):
         """Handle getting or creating tags as needed."""
         auth_user = self.context['request'].user
         for tag in tags:
-            tag_obj, created = Tag.objects.get
-
+            tag_obj, created = Tag.objects.get_or_create(
+                user=auth_user,
+                **tag,
+            )
+            recipe.tags.add(tag_obj)
 
 
 # Below code is for not creating duplicates in this system.
@@ -40,14 +43,8 @@ class RecipeSerializer(serializers.ModelSerializer):
         """Create a recipe."""
         tags = validated_data.pop('tags', [])
         recipe = Recipe.objects.create(**validated_data)
-        auth_user = self.context['request'].user
-        for tag in tags:
-            tag_obj, created = Tag.objects.get_or_create(
-                user=auth_user,
-                **tag,
-            )
-            recipe.tags.add(tag_obj)
-        
+        self._get_or_create_tags(tags, recipe)
+
         return recipe
 
 
@@ -60,7 +57,7 @@ class RecipeSerializer(serializers.ModelSerializer):
 
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
-        
+
         instance.save()
         return instance
 

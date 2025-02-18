@@ -23,4 +23,4 @@ docker-compose run --rm app sh -c "python manage.py test"
 
 docker-compose run --rm app sh -c "python manage.py startapp newapp"
 
-# Tutorial Pause at 102 video serializers, get or create tags.
+# Tutorial Pause at 105 video Ingredients API Design
