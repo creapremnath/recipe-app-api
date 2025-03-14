@@ -23,4 +23,4 @@ docker-compose run --rm app sh -c "python manage.py test"
 
 docker-compose run --rm app sh -c "python manage.py startapp newapp"
 
-# Tutorial Pause at 
+# Tutorial going on Recipe image API design 124 starting
