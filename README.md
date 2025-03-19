@@ -23,4 +23,4 @@ docker-compose run --rm app sh -c "python manage.py test"
 
 docker-compose run --rm app sh -c "python manage.py startapp newapp"
 
-# Tutorial going on Implement Recipe filter feature 132 starting
+# Ready to Deployement

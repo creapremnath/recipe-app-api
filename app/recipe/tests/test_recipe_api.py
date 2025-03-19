@@ -382,7 +382,7 @@ class PrivateRecipeAPITests(TestCase):
         """Test filtering recipes by tags."""
         r1 = create_recipe(user=self.user, title="Thai Vegetable Curry")
         r2 = create_recipe(user=self.user, title = "Auergine with Thaini")
-        tag1= Tag.object.create(user=self.user, name='vegan')
+        tag1= Tag.objects.create(user=self.user, name='vegan')
         tag2 = Tag.objects.create(user=self.user, name='vegetarian')
         r1.tags.add(tag1)
         r2.tags.add(tag2)
