@@ -23,4 +23,4 @@ docker-compose run --rm app sh -c "python manage.py test"
 
 docker-compose run --rm app sh -c "python manage.py startapp newapp"
 
-# Tutorial Pause at 99 video write test for creating tags
+# Ready to Deployement
