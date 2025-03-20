@@ -23,4 +23,6 @@ docker-compose run --rm app sh -c "python manage.py test"
 
 docker-compose run --rm app sh -c "python manage.py startapp newapp"
 
-# Ready to Deployement
+# Ready to Deployement 
+
+Working and Configured on docker-compose-deploy file
